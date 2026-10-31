@@ -269,6 +269,61 @@ footer a { text-decoration: none; }
 .alex-profile-group ul { display: grid; gap: 8px; margin: 0; padding-left: 18px; color: var(--ink); font-size: 13px; line-height: 1.65; }
 .fictional-note { margin: 16px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .profile-ending { max-width: 900px; margin: 26px 0 0; color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: clamp(19px, 2.5vw, 25px); line-height: 1.5; }
+.support-topic { margin: 58px 0 46px; }
+.support-topic > h3 { margin: 8px 0 12px; font-size: clamp(26px, 3.3vw, 35px); }
+.support-intro { max-width: 900px; margin: 0 0 22px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.strategy-feature { max-width: 1060px; margin: 26px 0; padding: 24px clamp(18px, 3vw, 32px); border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
+.strategy-heading h4, .udl-card h4, .di-card h4 { margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: 400; }
+.strategy-heading p, .cra-stage > p, .instruction-explanation { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.stage-tabs, .instruction-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.stage-sequence { margin: 14px 0 0; color: var(--green); font-size: 12px; letter-spacing: .02em; line-height: 1.65; }
+.stage-tab, .instruction-tab { padding: 9px 13px; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }
+.stage-tab.is-active, .instruction-tab.is-active { border-color: var(--green); background: #e5ecdf; color: #345b40; }
+.stage-tab:focus-visible, .instruction-tab:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.cra-stage[hidden] { display: none; }
+.cra-models { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 3vw, 36px); min-height: 150px; padding: 18px; border-radius: 4px; background: #f4f3ee; }
+.base-ten-set, .base-ten-total { display: grid; justify-items: center; gap: 8px; color: var(--green); }
+.base-ten-set > strong, .base-ten-total > strong, .drawn-models strong { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 400; }
+.base-ten-set > span, .base-ten-total > span { color: var(--muted); font-size: 11px; text-align: center; }
+.base-ten-pieces { display: flex; height: 64px; align-items: flex-end; gap: 5px; }
+.ten-rod { width: 13px; height: 60px; border: 1px solid #55745f; border-radius: 2px; background: repeating-linear-gradient(to bottom, #a9c0a7 0 8px, #55745f 8px 9px); }
+.unit-cubes { display: flex; flex-wrap: wrap; width: 38px; gap: 2px; }
+.unit-cubes i { width: 13px; height: 13px; border: 1px solid #55745f; border-radius: 2px; background: #dbe5d5; }
+.cra-plus, .cra-equals { color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 400; }
+.drawn-models { display: flex; min-height: 130px; align-items: center; justify-content: center; gap: clamp(12px, 3vw, 34px); border-radius: 4px; background: #f4f3ee; }
+.drawn-models > div { display: grid; justify-items: center; gap: 6px; }
+.drawn-tens { color: #55745f; font-family: monospace; font-size: 19px; letter-spacing: 3px; }
+.drawn-ones { color: #55745f; font-size: 12px; letter-spacing: 2px; }
+.abstract-equation { padding: 28px 15px 12px; color: var(--green); font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 6vw, 54px); text-align: center; }
+.numberline-demo { max-width: 760px; padding: 8px 10px 0; border-radius: 4px; background: #f4f3ee; }
+.numberline-demo svg { display: block; width: 100%; height: auto; }
+.numberline-demo[data-instruction-stage="guided"] .numberline-jumps { opacity: .55; }
+.numberline-demo[data-instruction-stage="independent"] .numberline-jumps { opacity: .25; }
+.instruction-explanation { margin-bottom: 0; }
+.guided-check, .independent-check { margin-top: 14px; padding: 16px; border-radius: 4px; background: #f4f3ee; }
+.guided-check[hidden], .independent-check[hidden] { display: none; }
+.guided-check p, .independent-check p { margin: 0 0 10px; font-size: 13px; }
+.guided-check [role="group"], .independent-check [role="group"] { display: flex; flex-wrap: wrap; gap: 8px; }
+.guided-check button, .independent-check button { min-width: 42px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--ink); cursor: pointer; }
+.guided-check button:focus-visible, .independent-check button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.guided-check > span, .independent-check > span { display: block; min-height: 20px; margin-top: 9px; color: var(--green); font-size: 12px; }
+.udl-grid, .di-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 1100px; }
+.udl-card, .di-card { min-height: 190px; padding: 20px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); }
+.udl-card > span { display: inline-grid; width: 30px; height: 30px; margin-bottom: 14px; place-items: center; border-radius: 50%; background: #e5ecdf; color: var(--green); font-size: 10px; font-weight: 700; }
+.udl-card h4, .di-card h4 { font-size: 18px; }
+.udl-card p, .di-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.assessment-reminder { max-width: 900px; margin: 20px 0 0; color: var(--green); font-size: 13px; line-height: 1.7; }
+.ontario-policy { max-width: 1060px; margin: 28px 0 0; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 5px; background: #eaf0e6; }
+.ontario-policy .policy-kicker { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.ontario-policy h4 { margin: 7px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 400; }
+.ontario-policy p { max-width: 920px; margin: 0 0 10px; color: var(--ink); font-size: 12px; line-height: 1.75; }
+.ontario-policy p:last-child { margin-bottom: 0; }
+.ontario-policy .policy-clarifier { color: #526158; }
+@media (max-width: 760px) {
+  .udl-grid, .di-grid { grid-template-columns: 1fr; }
+  .udl-card, .di-card { min-height: 0; }
+  .cra-models, .drawn-models { flex-wrap: wrap; }
+}
 @media (max-width: 600px) {
   .alex-profile-columns { grid-template-columns: 1fr; }
   .alex-profile-heading { align-items: flex-start; flex-direction: column; }

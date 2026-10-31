@@ -238,6 +238,62 @@ const sectionMarkup = sections.map((section) => `
         <p class="profile-ending">How can we build on Alex's strengths to support mathematical learning?</p>
       </section>
     ` : ''}
+    ${section.id === 'support' ? `
+      <section class="support-topic" id="support-4-1" aria-labelledby="support-41-title">
+        <span class="card-number">4.1</span>
+        <h3 id="support-41-title">Practical Teaching Strategies</h3>
+        <p class="support-intro">Inclusive mathematics teaching gives the whole class a shared learning goal, with flexible ways for students to take part. These evidence-informed approaches make concepts visible and support meaningful participation (Fuchs et al., 2021).</p>
+        <article class="strategy-feature" aria-labelledby="cra-title">
+          <div class="strategy-heading"><h4 id="cra-title">Concrete-Representational-Abstract (CRA)</h4><p>In one shared class lesson, students explore the same addition, <strong>23 + 14 = 37</strong>, using objects, drawings, or symbols. The class connects each representation to the same tens-and-ones relationship. Students can use blocks, drawing, explanation, or notation as supports; no representation is reserved for a particular learner.</p></div>
+          <div class="stage-tabs" role="group" aria-label="Choose a CRA representation">
+            <button class="stage-tab is-active" type="button" data-cra-stage="concrete" aria-pressed="true">1. Concrete</button>
+            <button class="stage-tab" type="button" data-cra-stage="representational" aria-pressed="false">2. Representational</button>
+            <button class="stage-tab" type="button" data-cra-stage="abstract" aria-pressed="false">3. Abstract</button>
+          </div>
+          <div class="cra-stage" data-cra-panel="concrete" aria-live="polite">
+            <div class="cra-models">
+              <div class="base-ten-set"><strong>23</strong><div class="base-ten-pieces" aria-label="Two tens rods and three unit cubes"><i class="ten-rod"></i><i class="ten-rod"></i><span class="unit-cubes"><i></i><i></i><i></i></span></div><span>2 tens + 3 ones</span></div><b class="cra-plus" aria-label="plus">+</b>
+              <div class="base-ten-set"><strong>14</strong><div class="base-ten-pieces" aria-label="One tens rod and four unit cubes"><i class="ten-rod"></i><span class="unit-cubes"><i></i><i></i><i></i><i></i></span></div><span>1 ten + 4 ones</span></div><span class="cra-equals" aria-hidden="true">=</span><div class="base-ten-total"><strong>37</strong><span>3 tens + 7 ones</span></div>
+            </div>
+            <p>As a class, combine the blocks: 2 tens and 1 ten make 3 tens; 3 ones and 4 ones make 7 ones. Students can build, explain, sketch, or observe the model.</p>
+          </div>
+          <div class="cra-stage" data-cra-panel="representational" hidden aria-live="polite">
+            <div class="drawn-models"><div><strong>23</strong><span class="drawn-tens" aria-label="two tens">|| ||</span><span class="drawn-ones">&#x25CF; &#x25CF; &#x25CF;</span></div><b>+</b><div><strong>14</strong><span class="drawn-tens" aria-label="one ten">||</span><span class="drawn-ones">&#x25CF; &#x25CF; &#x25CF; &#x25CF;</span></div><b>=</b><div><strong>37</strong><span class="drawn-tens" aria-label="three tens">|| || ||</span><span class="drawn-ones">&#x25CF; &#x25CF; &#x25CF; &#x25CF; &#x25CF; &#x25CF; &#x25CF;</span></div></div>
+            <p>Drawings preserve the same tens-and-ones structure. Students can sketch the groups, annotate a partner's drawing, or describe what they notice.</p>
+          </div>
+          <div class="cra-stage" data-cra-panel="abstract" hidden aria-live="polite"><div class="abstract-equation" aria-label="Twenty-three plus fourteen equals thirty-seven">23 + 14 = 37</div><p>The written equation uses numerals and an operation sign to express the same quantity relationship.</p></div>
+        </article>
+        <article class="strategy-feature explicit-strategy" aria-labelledby="explicit-title">
+          <div class="strategy-heading"><h4 id="explicit-title">Guided Number-Line Counting</h4><p>The teacher demonstrates how to solve addition problems using a number line. Students then practise with guidance before gradually applying the strategy independently.</p></div>
+          <p class="stage-sequence"><strong>Teacher Modeling &rarr; Guided Practice &rarr; Independent Practice</strong></p>
+          <div class="instruction-tabs" role="group" aria-label="Explore stages of number-line instruction"><button class="instruction-tab is-active" type="button" data-instruction="model" aria-pressed="true">Teacher Modeling</button><button class="instruction-tab" type="button" data-instruction="guided" aria-pressed="false">Guided Practice</button><button class="instruction-tab" type="button" data-instruction="independent" aria-pressed="false">Independent Practice</button></div>
+          <div class="numberline-demo" data-instruction-stage="model">
+            <svg viewBox="0 0 720 145" role="img" aria-labelledby="numberline-title numberline-desc"><title id="numberline-title">Two forward jumps from 5 to 7</title><desc id="numberline-desc">A number line demonstrates two jumps: 5 to 6, then 6 to 7.</desc><line x1="55" y1="105" x2="665" y2="105" stroke="#9a9d91" stroke-width="3"/><g class="numberline-jumps" fill="none" stroke="#55745f" stroke-width="3"><path d="M436 100 Q474 35 512 100"/><path d="M512 100 Q550 35 588 100"/></g><g fill="#27312c" font-family="Arial,sans-serif" font-size="17" text-anchor="middle"><text x="55" y="133">0</text><text x="131" y="133">1</text><text x="207" y="133">2</text><text x="284" y="133">3</text><text x="360" y="133">4</text><text x="436" y="133">5</text><text x="512" y="133">6</text><text x="588" y="133">7</text><text x="665" y="133">8</text></g><g fill="#55745f"><circle cx="436" cy="105" r="6"/><circle cx="512" cy="105" r="6"/><circle cx="588" cy="105" r="7"/></g></svg>
+          </div>
+          <div class="guided-check" id="guided-check" hidden><p>Hint: Start at 5. The first jump takes you to 6. Where does the second jump land?</p><div role="group" aria-label="Choose where the second jump lands"><button type="button" data-guided-answer="6">6</button><button type="button" data-guided-answer="7">7</button><button type="button" data-guided-answer="8">8</button></div><span id="guided-feedback" aria-live="polite"></span></div>
+          <div class="independent-check" id="independent-check" hidden><p><strong>Try it yourself:</strong> Start at 5 and make two jumps forward on the number line. Where do you land?</p><div role="group" aria-label="Choose where you land after two forward jumps from 5"><button type="button" data-independent-answer="6">6</button><button type="button" data-independent-answer="7">7</button><button type="button" data-independent-answer="8">8</button></div><span id="independent-feedback" aria-live="polite"></span></div>
+          <p class="instruction-explanation" id="instruction-explanation" aria-live="polite">Teacher modeling: Start at 5. Make two one-step jumps forward: 5 to 6, then 6 to 7.</p>
+        </article>
+      </section>
+      <section class="support-topic" id="support-4-2" aria-labelledby="support-42-title">
+        <span class="card-number">4.2</span><h3 id="support-42-title">Universal Design for Learning (UDL)</h3>
+        <p class="support-intro">CAST's UDL Guidelines 3.0 call educators to anticipate learner variability and proactively design learning that removes barriers, supports belonging, and provides meaningful choices (CAST, 2024). Flexible options are available to everyone, so students can participate in the same classroom community.</p>
+        <div class="udl-grid"><article class="udl-card"><span>01</span><h4>Multiple Means of Engagement</h4><p>Build interest, choice, and belonging into the lesson. Students might choose familiar or personally meaningful objects for a shared counting activity.</p></article><article class="udl-card"><span>02</span><h4>Multiple Means of Representation</h4><p>Make ideas accessible from the start. Show the same concept with physical materials, a visual model, and a written equation so students can connect the representations.</p></article><article class="udl-card"><span>03</span><h4>Multiple Means of Action and Expression</h4><p>Offer meaningful ways for everyone to contribute. Students can explain reasoning, draw a model, point to a pattern, or demonstrate a solution with manipulatives.</p></article></div>
+      </section>
+      <section class="support-topic" id="support-4-3" aria-labelledby="support-43-title">
+        <span class="card-number">4.3</span><h3 id="support-43-title">Differentiated Instruction (DI)</h3>
+        <p class="support-intro">Differentiated instruction adjusts teaching to students' readiness, learning needs, and interests while keeping learners part of a shared classroom community. Ongoing formative assessment helps teachers notice progress and respond equitably (Ontario Ministry of Education, 2013).</p>
+        <div class="di-grid"><article class="di-card"><h4>Adjusting Task Complexity</h4><p>Keep a shared goal, such as explaining tens and ones, while adjusting the level of challenge. Some students may model two-digit numbers with blocks; others may extend the same idea to larger numbers or calculations.</p></article><article class="di-card"><h4>Providing Targeted Support</h4><p>During the same class activity, students can use guided prompts, visual models, partner discussion, or teacher check-ins. Others may work with fewer prompts. Adjust the support as understanding grows.</p></article><article class="di-card"><h4>Accommodations and Assessment</h4><p>Offer extra time or a number line when it supports access to the assessed goal. Students can work toward the same mathematical understanding with different tools. An accommodation changes access; changing the skill being assessed changes the learning goal.</p></article></div>
+        <aside class="ontario-policy" aria-labelledby="ontario-policy-title">
+          <span class="policy-kicker">Ontario policy context</span>
+          <h4 id="ontario-policy-title">Inclusive Education in Ontario</h4>
+          <p>In Ontario, students with dyscalculia may receive individualized educational support while participating in regular classrooms. An Individual Education Plan (IEP) can document a student's strengths, learning needs, and appropriate accommodations (Ontario Ministry of Education, 2024).</p>
+          <p>When an Identification, Placement and Review Committee (IPRC) considers placement, it first considers whether a regular class with appropriate special education services can meet the student's needs and is consistent with parental preferences. Depending on individual needs, supports may include resource assistance or targeted instruction in the classroom (Ontario Ministry of Education, 2025).</p>
+          <p class="policy-clarifier">An IEP or separate special education class is not required for every student with dyscalculia. DI connects this policy context to classroom practice: students can participate in shared learning while receiving the individualized instruction and supports they need (Ontario Ministry of Education, 2014).</p>
+        </aside>
+        <p class="assessment-reminder">Invite students to choose useful tools and ways to share their thinking. Check understanding regularly, build on individual strengths, and adjust supports so everyone can participate in the common learning.</p>
+      </section>
+    ` : ''}
     ${section.id === 'resources' ? `
       <section class="reference-list" aria-labelledby="reference-list-title">
         <h3 id="reference-list-title">References</h3>
@@ -245,6 +301,12 @@ const sectionMarkup = sections.map((section) => `
           <li>American Psychiatric Association. (2022). <em>Diagnostic and statistical manual of mental disorders</em> (5th ed., text rev.). <a href="https://doi.org/10.1176/appi.books.9780890425787" target="_blank" rel="noreferrer">https://doi.org/10.1176/appi.books.9780890425787</a></li>
           <li>Kaufmann, L., Mazzocco, M. M. M., Dowker, A., von Aster, M., Göbel, S. M., Grabner, R. H., Henik, A., Jordan, N. C., Karmiloff-Smith, A., Kucian, K., Rubinsten, O., Sz&#x171;cs, D., Shalev, R., &amp; Nuerk, H.-C. (2013). Dyscalculia from a developmental and differential perspective. <em>Frontiers in Psychology, 4</em>, Article 516. <a href="https://doi.org/10.3389/fpsyg.2013.00516" target="_blank" rel="noreferrer">https://doi.org/10.3389/fpsyg.2013.00516</a></li>
           <li>Government of Canada. (n.d.). <em>Annex: Understanding disabilities</em>. <a href="https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html" target="_blank" rel="noreferrer">https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html</a></li>
+          <li>CAST. (2024). <em>CAST Universal Design for Learning Guidelines version 3.0</em>. <a href="https://udlguidelines.cast.org/" target="_blank" rel="noreferrer">https://udlguidelines.cast.org/</a></li>
+          <li>Fuchs, L. S., Newman-Gonchar, R., Schumacher, R., Dougherty, B., Bucka, N., Karp, K. S., Woodward, J., Clarke, B., Jordan, N. C., Gersten, R., Jayanthi, M., Keating, B., &amp; Morgan, S. (2021). <em>Assisting students struggling with mathematics: Intervention in the elementary grades</em> (WWC 2021-006). National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education. <a href="https://ies.ed.gov/ncee/wwc/PracticeGuide/26" target="_blank" rel="noreferrer">https://ies.ed.gov/ncee/wwc/PracticeGuide/26</a></li>
+          <li>Ontario Ministry of Education. (2013). <em>Learning for all: A guide to effective assessment and instruction for all students, kindergarten to Grade 12</em>. <a href="https://www.edu.gov.on.ca/eng/general/elemsec/speced/learningforall2013.pdf" target="_blank" rel="noreferrer">https://www.edu.gov.on.ca/eng/general/elemsec/speced/learningforall2013.pdf</a></li>
+          <li>Ontario Ministry of Education. (2014, August 26). <em>Policy/Program Memorandum 8: Identification of and program planning for students with learning disabilities</em>. Government of Ontario. <a href="https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8" target="_blank" rel="noreferrer">https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8</a></li>
+          <li>Ontario Ministry of Education. (2024, December 30). <em>Individual education plans</em>. Government of Ontario. <a href="https://www.ontario.ca/page/individual-education-plans" target="_blank" rel="noreferrer">https://www.ontario.ca/page/individual-education-plans</a></li>
+          <li>Ontario Ministry of Education. (2025, May 23). <em>Identifying students with special education needs</em>. Government of Ontario. <a href="https://www.ontario.ca/page/identifying-students-special-education-needs" target="_blank" rel="noreferrer">https://www.ontario.ca/page/identifying-students-special-education-needs</a></li>
         </ol>
       </section>
     ` : ''}
@@ -397,6 +459,53 @@ document.querySelectorAll('.skill-card-toggle').forEach((button) => {
     button.setAttribute('aria-expanded', String(!isExpanded))
     example.hidden = isExpanded
     button.querySelector('.skill-toggle-icon').textContent = isExpanded ? '+' : '-'
+  })
+})
+
+document.querySelectorAll('.stage-tab').forEach((button) => {
+  button.addEventListener('click', () => {
+    const stage = button.dataset.craStage
+    document.querySelectorAll('.stage-tab').forEach((tab) => {
+      const active = tab === button
+      tab.classList.toggle('is-active', active)
+      tab.setAttribute('aria-pressed', String(active))
+    })
+    document.querySelectorAll('.cra-stage').forEach((panel) => {
+      panel.hidden = panel.dataset.craPanel !== stage
+    })
+  })
+})
+
+const instructionCopy = {
+  model: 'Teacher modeling: Start at 5. Make two one-step jumps forward: 5 to 6, then 6 to 7.',
+  guided: 'Guided practice: Use the hint to track the second jump. Students may point, count aloud, or select an answer.',
+  independent: 'Independent practice: Solve the two-jump problem on your own, using any strategy that helps you.'
+}
+
+document.querySelectorAll('.instruction-tab').forEach((button) => {
+  button.addEventListener('click', () => {
+    const stage = button.dataset.instruction
+    document.querySelectorAll('.instruction-tab').forEach((tab) => {
+      const active = tab === button
+      tab.classList.toggle('is-active', active)
+      tab.setAttribute('aria-pressed', String(active))
+    })
+    document.querySelector('.numberline-demo').dataset.instructionStage = stage
+    document.querySelector('#instruction-explanation').textContent = instructionCopy[stage]
+    document.querySelector('#guided-check').hidden = stage !== 'guided'
+    document.querySelector('#independent-check').hidden = stage !== 'independent'
+  })
+})
+
+document.querySelectorAll('[data-guided-answer]').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelector('#guided-feedback').textContent = button.dataset.guidedAnswer === '7' ? 'Correct. From 6, the second jump lands on 7.' : 'Try again: the first jump reached 6. Count one more step forward.'
+  })
+})
+
+document.querySelectorAll('[data-independent-answer]').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelector('#independent-feedback').textContent = button.dataset.independentAnswer === '7' ? 'Correct. Two forward jumps from 5 land on 7.' : 'Not quite. Start at 5 and count two forward jumps.'
   })
 })
 
