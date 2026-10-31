@@ -130,7 +130,7 @@ const sectionMarkup = sections.map((section) => `
               </fieldset>
             </section>
             <section class="test-question" aria-labelledby="subtraction-title">
-              <h4 id="subtraction-title">5 &#x2212; 4 = ?</h4>
+              <h4 id="subtraction-title"><span lang="he" dir="rtl">&#x5D4;</span> &#x2212; <span lang="he" dir="rtl">&#x5D3;</span> = ?</h4>
               <fieldset class="hebrew-answers" data-answer="1">
                 <legend class="sr-only">Choose the Hebrew numeral for the answer</legend>
                 <label class="hebrew-answer"><input type="radio" name="subtraction" value="1" /><span class="hebrew-letter" lang="he" dir="rtl">&#x5D0;</span></label>
@@ -151,7 +151,7 @@ const sectionMarkup = sections.map((section) => `
         <ul>
           <li><strong>Counting:</strong> How many apples were there?</li>
           <li><strong>Addition:</strong> 1 + 2 = ?</li>
-          <li><strong>Subtraction:</strong> 5 &#x2212; 4 = ?</li>
+          <li><strong>Subtraction:</strong> 5 &#x2212; 4 = ? (<span lang="he" dir="rtl">&#x5D4;</span> &#x2212; <span lang="he" dir="rtl">&#x5D3;</span> = ?)</li>
         </ul>
         <p>You already knew how to count, add, and subtract. Yet <strong>replacing familiar numbers with unfamiliar symbols</strong> may have made these tasks more challenging.</p>
         <h4>What made the difference?</h4>
