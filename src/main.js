@@ -79,7 +79,7 @@ const sectionMarkup = sections.map((section) => `
         </div>
         <div class="experience-video-wrap">
           <video class="experience-video" controls preload="metadata" playsinline aria-label="A parent helping a child count">
-            <source src="/video.mp4" type="video/mp4" />
+            <source src="${import.meta.env.BASE_URL}video.mp4" type="video/mp4" />
             Your browser does not support embedded video.
           </video>
         </div>
@@ -108,7 +108,7 @@ const sectionMarkup = sections.map((section) => `
           <div class="test-questions">
             <section class="test-question" aria-labelledby="apple-question-title">
               <h4 id="apple-question-title">How many apples are there?</h4>
-              <img class="apple-image" src="/image.png" alt="Four green apples grouped together" />
+              <img class="apple-image" src="${import.meta.env.BASE_URL}image.png" alt="Four green apples grouped together" />
               <fieldset class="hebrew-answers" data-answer="4">
                 <legend class="sr-only">Choose the Hebrew numeral for the number of apples</legend>
                 <label class="hebrew-answer"><input type="radio" name="apple-count" value="5" /><span class="hebrew-letter" lang="he" dir="rtl">&#x5D4;</span></label>
