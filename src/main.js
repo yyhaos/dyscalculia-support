@@ -51,7 +51,7 @@ const sections = [
     number: '05',
     title: 'Resources',
     subtitle: 'Continue the conversation',
-    intro: 'Starting points for educators and families, with a reference list to support the ideas on this page.',
+    intro: 'Trusted starting points for educators, families, and students, followed by the academic and policy references used throughout this page.',
     items: [
       ['5.1', 'For Educators', 'Organizations and guidance', 'Learning Disabilities Association of Ontario (LDAO) · LD@school · CAST UDL Guidelines.'],
       ['5.2', 'For Families', 'Finding support', 'Family guides, practical math activities, and information about seeking assessment and school support.'],
@@ -162,7 +162,7 @@ const sectionMarkup = sections.map((section) => `
         <p class="reflection-emphasis"><strong>If one unfamiliar step made counting difficult for you, imagine how challenging it can be for a child who is still learning the steps themselves.</strong></p>
       </article>
     ` : ''}
-    ${section.items.length ? `<div class="outline-grid">
+    ${section.items.length && section.id !== 'resources' ? `<div class="outline-grid">
       ${section.items.map(([number, title]) => `
         <article class="outline-card" id="${number.replace('.', '-')}">
           <span class="card-number">${number}</span>
@@ -278,7 +278,56 @@ const sectionMarkup = sections.map((section) => `
       <section class="support-topic" id="support-4-2" aria-labelledby="support-42-title">
         <span class="card-number">4.2</span><h3 id="support-42-title">Universal Design for Learning (UDL)</h3>
         <p class="support-intro">CAST's UDL Guidelines 3.0 call educators to anticipate learner variability and proactively design learning that removes barriers, supports belonging, and provides meaningful choices (CAST, 2024). Flexible options are available to everyone, so students can participate in the same classroom community.</p>
-        <div class="udl-grid"><article class="udl-card"><span>01</span><h4>Multiple Means of Engagement</h4><p>Build interest, choice, and belonging into the lesson. Students might choose familiar or personally meaningful objects for a shared counting activity.</p></article><article class="udl-card"><span>02</span><h4>Multiple Means of Representation</h4><p>Make ideas accessible from the start. Show the same concept with physical materials, a visual model, and a written equation so students can connect the representations.</p></article><article class="udl-card"><span>03</span><h4>Multiple Means of Action and Expression</h4><p>Offer meaningful ways for everyone to contribute. Students can explain reasoning, draw a model, point to a pattern, or demonstrate a solution with manipulatives.</p></article></div>
+        <div class="udl-grid" aria-label="Three UDL principles applied to the class party activity">
+          <article class="udl-card">
+            <span class="udl-card-number">01</span>
+            <button class="udl-card-toggle" type="button" aria-expanded="false" aria-controls="udl-example-engagement"><span>Multiple Means of Engagement</span><span class="udl-toggle-icon" aria-hidden="true">+</span></button>
+            <p class="udl-card-description">Offer relevant choices that invite interest, collaboration, and belonging.</p>
+            <div class="udl-card-example" id="udl-example-engagement" hidden><span>Class party example</span><p>Students choose a planning role, such as shopper or budget tracker, and work with a partner to find the cost of the three juice boxes. Everyone works toward the same $6 total.</p></div>
+          </article>
+          <article class="udl-card">
+            <span class="udl-card-number">02</span>
+            <button class="udl-card-toggle" type="button" aria-expanded="false" aria-controls="udl-example-representation"><span>Multiple Means of Representation</span><span class="udl-toggle-icon" aria-hidden="true">+</span></button>
+            <p class="udl-card-description">Present information in more than one accessible format so learners can make connections.</p>
+            <div class="udl-card-example" id="udl-example-representation" hidden><span>Class party example</span><p>Students use the illustrated price labels, visual price cards, and equations such as $2 + $2 + $2 to work out the same $6 total.</p></div>
+          </article>
+          <article class="udl-card">
+            <span class="udl-card-number">03</span>
+            <button class="udl-card-toggle" type="button" aria-expanded="false" aria-controls="udl-example-expression"><span>Multiple Means of Action &amp; Expression</span><span class="udl-toggle-icon" aria-hidden="true">+</span></button>
+            <p class="udl-card-description">Offer flexible ways for students to show what they know and communicate their thinking.</p>
+            <div class="udl-card-example" id="udl-example-expression" hidden><span>Class party example</span><p>Students show the same $6 calculation with a drawing, play money, or a verbal explanation, then share how their representation shows the total cost.</p></div>
+          </article>
+        </div>
+        <article class="udl-scenario" aria-labelledby="party-title">
+          <div class="party-task">
+            <div class="party-task-copy"><span class="scenario-grade">Grade 4 class activity</span><h4 id="party-title">Let's Plan a Class Party!</h4><p>Your class has a budget of $20. How much would three juice boxes cost at $2 each?</p><p class="party-learning-goal"><strong>Shared learning goal:</strong> Find the total cost of three items priced at $2 each.</p></div>
+            <div class="juice-boxes" role="img" aria-label="Three illustrated juice boxes, each with a price label of two dollars">
+              <div class="juice-item"><div class="juice-carton"><span class="juice-straw"></span><span class="juice-brand">JUICE</span><span class="juice-fruit" aria-hidden="true">&#x25CF;</span></div><span class="juice-price">$2</span></div>
+              <div class="juice-item"><div class="juice-carton juice-carton-orange"><span class="juice-straw"></span><span class="juice-brand">JUICE</span><span class="juice-fruit" aria-hidden="true">&#x25CF;</span></div><span class="juice-price">$2</span></div>
+              <div class="juice-item"><div class="juice-carton juice-carton-gold"><span class="juice-straw"></span><span class="juice-brand">JUICE</span><span class="juice-fruit" aria-hidden="true">&#x25CF;</span></div><span class="juice-price">$2</span></div>
+            </div>
+          </div>
+          <div class="udl-tabs" role="tablist" aria-label="Explore UDL choices in the class party activity">
+            <button class="udl-tab is-active" type="button" role="tab" id="udl-tab-engagement" aria-selected="true" aria-controls="udl-panel-engagement" data-udl-panel="engagement">Engagement</button>
+            <button class="udl-tab" type="button" role="tab" id="udl-tab-representation" aria-selected="false" aria-controls="udl-panel-representation" data-udl-panel="representation" tabindex="-1">Representation</button>
+            <button class="udl-tab" type="button" role="tab" id="udl-tab-expression" aria-selected="false" aria-controls="udl-panel-expression" data-udl-panel="expression" tabindex="-1">Action &amp; Expression</button>
+          </div>
+          <section class="udl-panel" id="udl-panel-engagement" role="tabpanel" aria-labelledby="udl-tab-engagement" data-udl-content="engagement">
+            <span class="udl-principle">Multiple Means of Engagement</span><h5>Choice, interest, and collaboration</h5>
+            <div class="udl-panel-columns"><p><strong>Teacher provides</strong> a choice of meaningful party-planning roles, such as supply shopper or budget tracker, and lets partners choose a category of supplies to plan.</p><p><strong>Students do</strong> the same juice-box cost problem while choosing a role and talking through the plan with a partner.</p><p><strong>How this supports participation</strong> Personal choice and partner collaboration invite students to contribute through their interests and strengths.</p></div>
+          </section>
+          <section class="udl-panel" id="udl-panel-representation" role="tabpanel" aria-labelledby="udl-tab-representation" data-udl-content="representation" hidden>
+            <span class="udl-principle">Multiple Means of Representation</span><h5>See the price in more than one way</h5>
+            <div class="udl-panel-columns"><p><strong>Teacher provides</strong> visual price cards for each juice box alongside numerical forms such as <strong>$2 + $2 + $2</strong> and <strong>3 x $2</strong></p><p><strong>Students do</strong> match each item to its price, then use the pictures and numbers to work out the total.</p><p><strong>How this supports participation</strong> Connecting visual and numerical information makes the task easier to access and helps students choose a useful representation.</p></div>
+          </section>
+          <section class="udl-panel" id="udl-panel-expression" role="tabpanel" aria-labelledby="udl-tab-expression" data-udl-content="expression" hidden>
+            <span class="udl-principle">Multiple Means of Action and Expression</span><h5>Show how you worked it out</h5>
+            <div class="udl-panel-columns"><p><strong>Teacher provides</strong> drawing materials, play money, and the option to explain thinking verbally.</p><p><strong>Students do</strong> demonstrate the same total by sketching groups, combining three $2 amounts in play money, or explaining their calculation.</p><p><strong>How this supports participation</strong> Students can communicate mathematical understanding in a way that works for them while meeting the shared goal.</p></div>
+          </section>
+          <p class="udl-together"><strong>One shared activity, three connected principles.</strong> These options work together so all students can engage with the task, access the math, and share their learning.</p>
+        </article>
+
+        <p class="udl-conclusion">When teachers plan for learner variability in advance, they can reduce barriers and create more accessible, inclusive learning for everyone (CAST, 2024).</p>
       </section>
       <section class="support-topic" id="support-4-3" aria-labelledby="support-43-title">
         <span class="card-number">4.3</span><h3 id="support-43-title">Differentiated Instruction (DI)</h3>
@@ -291,24 +340,89 @@ const sectionMarkup = sections.map((section) => `
           <p>When an Identification, Placement and Review Committee (IPRC) considers placement, it first considers whether a regular class with appropriate special education services can meet the student's needs and is consistent with parental preferences. Depending on individual needs, supports may include resource assistance or targeted instruction in the classroom (Ontario Ministry of Education, 2025).</p>
           <p class="policy-clarifier">An IEP or separate special education class is not required for every student with dyscalculia. DI connects this policy context to classroom practice: students can participate in shared learning while receiving the individualized instruction and supports they need (Ontario Ministry of Education, 2014).</p>
         </aside>
-        <p class="assessment-reminder">Invite students to choose useful tools and ways to share their thinking. Check understanding regularly, build on individual strengths, and adjust supports so everyone can participate in the common learning.</p>
+      </section>
+      <section class="support-topic alex-application" id="support-4-4" aria-labelledby="support-44-title">
+        <span class="card-number">4.4</span><h3 id="support-44-title">Applying Strategies to Alex</h3>
+        <p class="support-intro">Alex is the fictional Grade 4 learner introduced in Section 3.3. Explore two ways a teacher can build on Alex's strengths while supporting specific math needs in a shared classroom.</p>
+        <div class="alex-scenario-tabs" role="tablist" aria-label="Choose a classroom scenario for Alex">
+          <button class="alex-scenario-tab is-active" type="button" role="tab" id="alex-tab-place" aria-selected="true" aria-controls="alex-panel-place" data-alex-panel="place">Place Value</button>
+          <button class="alex-scenario-tab" type="button" role="tab" id="alex-tab-facts" aria-selected="false" aria-controls="alex-panel-facts" data-alex-panel="facts" tabindex="-1">Arithmetic Facts</button>
+        </div>
+        <article class="alex-scenario-panel" id="alex-panel-place" role="tabpanel" aria-labelledby="alex-tab-place" data-alex-content="place">
+          <div class="alex-profile-flow">
+            <p><strong>Learning Need</strong>Difficulty understanding place value</p><span aria-hidden="true">&#x2192;</span>
+            <p><strong>Individual Strength</strong>Enjoys drawing and visual activities</p><span aria-hidden="true">&#x2192;</span>
+            <p><strong>Teaching Strategy</strong>Connect base-ten blocks, a drawing, and the numeral 23</p>
+          </div>
+          <div class="alex-visual-progression" aria-label="Concrete, drawing, and numeral representations of 23">
+            <div class="alex-visual-step"><span class="alex-step-label">Base-ten blocks</span><div class="alex-block-model" role="img" aria-label="Two tens rods and three unit cubes"><i class="alex-ten-rod"></i><i class="alex-ten-rod"></i><span class="alex-unit-cubes"><i></i><i></i><i></i></span></div><span class="alex-step-caption">2 tens + 3 ones</span></div>
+            <span class="alex-progression-arrow" aria-hidden="true">&#x2192;</span>
+            <div class="alex-visual-step"><span class="alex-step-label">Alex draws</span><div class="alex-drawn-model" role="img" aria-label="A drawing of two tens and three ones"><span>|| &nbsp; ||</span><span>&#x25CF; &#x25CF; &#x25CF;</span></div><span class="alex-step-caption">2 tens + 3 ones</span></div>
+            <span class="alex-progression-arrow" aria-hidden="true">&#x2192;</span>
+            <div class="alex-visual-step"><span class="alex-step-label">Numeral</span><div class="alex-numeral">23</div><span class="alex-step-caption">twenty-three</span></div>
+          </div>
+          <p class="alex-scenario-connection">During the shared place-value lesson, Alex builds 23 with blocks, draws two tens and three ones, and connects the model to 23. This applies <a href="#support-4-1">CRA</a>; classmates work toward the same goal with accessible representations and individualized support, reflecting <a href="#support-4-2">UDL</a> and <a href="#support-4-3">DI</a>.</p>
+        </article>
+        <article class="alex-scenario-panel" id="alex-panel-facts" role="tabpanel" aria-labelledby="alex-tab-facts" data-alex-content="facts" hidden>
+          <div class="alex-profile-flow">
+            <p><strong>Learning Need</strong>Difficulty recalling basic arithmetic facts</p><span aria-hidden="true">&#x2192;</span>
+            <p><strong>Individual Strength</strong>Communicates ideas clearly through verbal explanations</p><span aria-hidden="true">&#x2192;</span>
+            <p><strong>Teaching Strategy</strong>Use a number line and explain each counting step aloud</p>
+          </div>
+          <div class="alex-facts-visual">
+            <svg viewBox="0 0 720 145" role="img" aria-labelledby="alex-numberline-title alex-numberline-desc"><title id="alex-numberline-title">Four forward jumps from 3 to 7</title><desc id="alex-numberline-desc">A number line shows four one-step jumps: 3 to 4, 4 to 5, 5 to 6, and 6 to 7.</desc><line x1="55" y1="105" x2="665" y2="105" stroke="#9a9d91" stroke-width="3"/><g fill="none" stroke="#55745f" stroke-width="3"><path d="M284 100 Q322 35 360 100"/><path d="M360 100 Q398 35 436 100"/><path d="M436 100 Q474 35 512 100"/><path d="M512 100 Q550 35 588 100"/></g><g fill="#27312c" font-family="Arial,sans-serif" font-size="17" text-anchor="middle"><text x="55" y="133">0</text><text x="131" y="133">1</text><text x="207" y="133">2</text><text x="284" y="133">3</text><text x="360" y="133">4</text><text x="436" y="133">5</text><text x="512" y="133">6</text><text x="588" y="133">7</text><text x="665" y="133">8</text></g><g fill="#55745f"><circle cx="284" cy="105" r="6"/><circle cx="360" cy="105" r="6"/><circle cx="436" cy="105" r="6"/><circle cx="512" cy="105" r="6"/><circle cx="588" cy="105" r="7"/></g></svg>
+            <p class="alex-equation">3 + 4 = 7</p>
+          </div>
+          <p class="alex-scenario-connection">Alex counts each jump aloud to a partner: “3, 4, 5, 6, 7.” The teacher models first, offers guided prompts, then gradually reduces them as Alex gains fluency. Verbal explanation supports Alex's agency in the shared lesson, applying <a href="#support-4-1">explicit instruction</a>, <a href="#support-4-2">UDL</a>, and <a href="#support-4-3">DI</a>.</p>
+        </article>
+        <p class="alex-inclusive-note">Alex participates in the same mathematics classroom as peers while receiving individualized support matched to the learning need and personal strengths (Fuchs et al., 2021; CAST, 2024; Ontario Ministry of Education, 2013).</p>
+        <p class="alex-ending">Inclusive education begins with understanding each learner's strengths and creating opportunities for meaningful participation.</p>
       </section>
     ` : ''}
     ${section.id === 'resources' ? `
-      <section class="reference-list" aria-labelledby="reference-list-title">
-        <h3 id="reference-list-title">References</h3>
-        <ol>
-          <li>American Psychiatric Association. (2022). <em>Diagnostic and statistical manual of mental disorders</em> (5th ed., text rev.). <a href="https://doi.org/10.1176/appi.books.9780890425787" target="_blank" rel="noreferrer">https://doi.org/10.1176/appi.books.9780890425787</a></li>
-          <li>Kaufmann, L., Mazzocco, M. M. M., Dowker, A., von Aster, M., Göbel, S. M., Grabner, R. H., Henik, A., Jordan, N. C., Karmiloff-Smith, A., Kucian, K., Rubinsten, O., Sz&#x171;cs, D., Shalev, R., &amp; Nuerk, H.-C. (2013). Dyscalculia from a developmental and differential perspective. <em>Frontiers in Psychology, 4</em>, Article 516. <a href="https://doi.org/10.3389/fpsyg.2013.00516" target="_blank" rel="noreferrer">https://doi.org/10.3389/fpsyg.2013.00516</a></li>
-          <li>Government of Canada. (n.d.). <em>Annex: Understanding disabilities</em>. <a href="https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html" target="_blank" rel="noreferrer">https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html</a></li>
-          <li>CAST. (2024). <em>CAST Universal Design for Learning Guidelines version 3.0</em>. <a href="https://udlguidelines.cast.org/" target="_blank" rel="noreferrer">https://udlguidelines.cast.org/</a></li>
-          <li>Fuchs, L. S., Newman-Gonchar, R., Schumacher, R., Dougherty, B., Bucka, N., Karp, K. S., Woodward, J., Clarke, B., Jordan, N. C., Gersten, R., Jayanthi, M., Keating, B., &amp; Morgan, S. (2021). <em>Assisting students struggling with mathematics: Intervention in the elementary grades</em> (WWC 2021-006). National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education. <a href="https://ies.ed.gov/ncee/wwc/PracticeGuide/26" target="_blank" rel="noreferrer">https://ies.ed.gov/ncee/wwc/PracticeGuide/26</a></li>
-          <li>Ontario Ministry of Education. (2013). <em>Learning for all: A guide to effective assessment and instruction for all students, kindergarten to Grade 12</em>. <a href="https://www.edu.gov.on.ca/eng/general/elemsec/speced/learningforall2013.pdf" target="_blank" rel="noreferrer">https://www.edu.gov.on.ca/eng/general/elemsec/speced/learningforall2013.pdf</a></li>
-          <li>Ontario Ministry of Education. (2014, August 26). <em>Policy/Program Memorandum 8: Identification of and program planning for students with learning disabilities</em>. Government of Ontario. <a href="https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8" target="_blank" rel="noreferrer">https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8</a></li>
-          <li>Ontario Ministry of Education. (2024, December 30). <em>Individual education plans</em>. Government of Ontario. <a href="https://www.ontario.ca/page/individual-education-plans" target="_blank" rel="noreferrer">https://www.ontario.ca/page/individual-education-plans</a></li>
-          <li>Ontario Ministry of Education. (2025, May 23). <em>Identifying students with special education needs</em>. Government of Ontario. <a href="https://www.ontario.ca/page/identifying-students-special-education-needs" target="_blank" rel="noreferrer">https://www.ontario.ca/page/identifying-students-special-education-needs</a></li>
-        </ol>
-      </section>
+      <div class="resources-content">
+        <section class="resource-group" id="5-1" aria-labelledby="educator-resources-title">
+          <span class="card-number">5.1</span><h3 id="educator-resources-title">Resources for Educators</h3>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">Ontario Ministry of Education &mdash; Policy/Program Memorandum No. 8 (PPM 8)</span><span class="resource-card-description">Ontario's official policy on identifying students with learning disabilities and planning appropriate educational support.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+            <a class="resource-card" href="https://udlguidelines.cast.org/" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">CAST &mdash; Universal Design for Learning Guidelines 3.0</span><span class="resource-card-description">The official UDL framework for designing accessible learning environments through multiple means of engagement, representation, and action and expression.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+            <a class="resource-card" href="https://ies.ed.gov/ncee/wwc/PracticeGuide/26" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">Institute of Education Sciences &mdash; Assisting Students Struggling with Mathematics: Intervention in the Elementary Grades</span><span class="resource-card-description">A research-based practice guide offering practical recommendations for mathematics intervention, including systematic instruction and visual representations.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+            <a class="resource-card" href="https://www.ldatschool.ca/" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">LD@school &mdash; Classroom Resources</span><span class="resource-card-description">An Ontario-based resource platform offering research-informed instructional strategies and classroom materials for educators supporting students with learning disabilities.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+          </div>
+        </section>
+        <section class="resource-group" id="5-2" aria-labelledby="family-resources-title">
+          <span class="card-number">5.2</span><h3 id="family-resources-title">Resources for Families and Students</h3>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.ldao.ca/" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">Learning Disabilities Association of Ontario (LDAO)</span><span class="resource-card-description">Information, advocacy, and community resources for individuals with learning disabilities and their families in Ontario.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+            <a class="resource-card" href="https://www.ldathome.ca/" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">LD@home &mdash; Resources for Families</span><span class="resource-card-description">A family-focused platform providing practical information about learning disabilities, home support strategies, and collaboration with schools.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+            <a class="resource-card" href="https://www.ldatschool.ca/video-math-parent/" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">Supporting Students with LDs in Math &mdash; A Parent's Guide</span><span class="resource-card-description">A parent-oriented video resource with practical advice for supporting mathematical learning and working with educators.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+            <a class="resource-card" href="https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html#h2.7" target="_blank" rel="noopener noreferrer"><span class="resource-card-title">Government of Canada &mdash; Understanding Disabilities</span><span class="resource-card-description">Official Canadian government information about different types of disabilities, including dyscalculia and its effects on numerical understanding.</span><span class="resource-card-link" aria-hidden="true">Open resource &#x2197;</span></a>
+          </div>
+        </section>
+        <aside class="ontario-resources" aria-labelledby="ontario-resources-title">
+          <div><span class="card-number">Ontario policy</span><h3 id="ontario-resources-title">Ontario Special Education Policies</h3></div>
+          <div class="policy-resource-list">
+            <a class="policy-resource" href="https://www.ontario.ca/page/individual-education-plans" target="_blank" rel="noopener noreferrer"><span><strong>Ontario Ministry of Education &mdash; Individual Education Plans (IEP)</strong><small>Official information about IEPs and how they document students' individual learning needs and educational supports.</small></span><span aria-hidden="true">&#x2197;</span></a>
+            <a class="policy-resource" href="https://www.ontario.ca/page/identifying-students-special-education-needs" target="_blank" rel="noopener noreferrer"><span><strong>Ontario Ministry of Education &mdash; Identifying Students with Special Education Needs</strong><small>Official information about special education identification, the IPRC process, and educational placement options in Ontario.</small></span><span aria-hidden="true">&#x2197;</span></a>
+          </div>
+        </aside>
+        <section class="reference-list" id="5-3" aria-labelledby="reference-list-title">
+          <span class="card-number">5.3</span><h3 id="reference-list-title">References</h3>
+          <ul class="apa-references">
+            <li>American Psychiatric Association. (2022). <em>Diagnostic and statistical manual of mental disorders</em> (5th ed., text rev.). <a href="https://doi.org/10.1176/appi.books.9780890425787" target="_blank" rel="noopener noreferrer">https://doi.org/10.1176/appi.books.9780890425787</a></li>
+            <li>CAST. (2024). <em>CAST Universal Design for Learning Guidelines version 3.0</em>. <a href="https://udlguidelines.cast.org/" target="_blank" rel="noopener noreferrer">https://udlguidelines.cast.org/</a></li>
+            <li>Dehaene, S. (1992). Varieties of numerical abilities. <em>Cognition, 44</em>(1-2), 1-42. <a href="https://www.unicog.org/publications/Dehaene_VarietiesOfNumericalAbilities_Cognition_1992.pdf" target="_blank" rel="noopener noreferrer">https://www.unicog.org/publications/Dehaene_VarietiesOfNumericalAbilities_Cognition_1992.pdf</a></li>
+            <li>Fuchs, L. S., Newman-Gonchar, R., Schumacher, R., Dougherty, B., Bucka, N., Karp, K. S., Woodward, J., Clarke, B., Jordan, N. C., Gersten, R., Jayanthi, M., Keating, B., &amp; Morgan, S. (2021). <em>Assisting students struggling with mathematics: Intervention in the elementary grades</em> (WWC 2021-006). National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education. <a href="https://ies.ed.gov/ncee/wwc/PracticeGuide/26" target="_blank" rel="noopener noreferrer">https://ies.ed.gov/ncee/wwc/PracticeGuide/26</a></li>
+            <li>Government of Canada. (n.d.). <em>Annex: Understanding disabilities</em>. <a href="https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html#h2.7" target="_blank" rel="noopener noreferrer">https://www.canada.ca/en/employment-social-development/programs/accessible-canada-regulations-guidance/consultation/key-concepts.html#h2.7</a></li>
+            <li>Kaufmann, L., Mazzocco, M. M. M., Dowker, A., von Aster, M., G&#x00F6;bel, S. M., Grabner, R. H., Henik, A., Jordan, N. C., Karmiloff-Smith, A., Kucian, K., Rubinsten, O., Sz&#x171;cs, D., Shalev, R., &amp; Nuerk, H.-C. (2013). Dyscalculia from a developmental and differential perspective. <em>Frontiers in Psychology, 4</em>, Article 516. <a href="https://doi.org/10.3389/fpsyg.2013.00516" target="_blank" rel="noopener noreferrer">https://doi.org/10.3389/fpsyg.2013.00516</a></li>
+            <li>Ontario Ministry of Education. (2013). <em>Learning for all: A guide to effective assessment and instruction for all students, kindergarten to Grade 12</em>. <a href="https://www.edu.gov.on.ca/eng/general/elemsec/speced/learningforall2013.pdf" target="_blank" rel="noopener noreferrer">https://www.edu.gov.on.ca/eng/general/elemsec/speced/learningforall2013.pdf</a></li>
+            <li>Ontario Ministry of Education. (2014, August 26). <em>Policy/Program Memorandum 8: Identification of and program planning for students with learning disabilities</em>. Government of Ontario. <a href="https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8" target="_blank" rel="noopener noreferrer">https://www.ontario.ca/document/education-ontario-policy-and-program-direction/policyprogram-memorandum-8</a></li>
+            <li>Ontario Ministry of Education. (2024, December 30). <em>Individual education plans</em>. Government of Ontario. <a href="https://www.ontario.ca/page/individual-education-plans" target="_blank" rel="noopener noreferrer">https://www.ontario.ca/page/individual-education-plans</a></li>
+            <li>Ontario Ministry of Education. (2025, May 23). <em>Identifying students with special education needs</em>. Government of Ontario. <a href="https://www.ontario.ca/page/identifying-students-special-education-needs" target="_blank" rel="noopener noreferrer">https://www.ontario.ca/page/identifying-students-special-education-needs</a></li>
+            <li>Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em> (M. Cole, V. John-Steiner, S. Scribner, &amp; E. Souberman, Eds.). Harvard University Press. <a href="https://doi.org/10.2307/j.ctvjf9vz4" target="_blank" rel="noopener noreferrer">https://doi.org/10.2307/j.ctvjf9vz4</a></li>
+          </ul>
+        </section>
+      </div>
     ` : ''}
     ${section.id === 'theory' ? `
       <article class="mediation-demo" data-focus="social" aria-labelledby="mediation-title">
@@ -366,7 +480,6 @@ const sectionMarkup = sections.map((section) => `
           <h3 id="number-map-title">Making Sense of Numbers</h3>
           <p>One quantity can be represented in different ways. Select a representation to explore how it connects to the meaning of one.</p>
         </div>
-        <div class="number-map-actions"><button class="button language-toggle" id="toggle-number-language" type="button" aria-pressed="false">Hebrew!</button></div>
         <div class="number-map-grid">
           <svg class="map-connections" viewBox="0 0 1000 375" preserveAspectRatio="none" aria-hidden="true">
             <line class="map-connection is-active" data-link="arabic" x1="500" y1="38" x2="167" y2="63" />
@@ -392,6 +505,7 @@ const sectionMarkup = sections.map((section) => `
             <span class="representation-label">Physical Quantity</span><strong class="representation-value"><span aria-hidden="true">&#x1F34E;</span> one apple</strong>
           </button>
         </div>
+        <div class="number-map-actions"><button class="button language-toggle" id="toggle-number-language" type="button" aria-pressed="false">Hebrew!</button><span class="hebrew-test-reminder" id="hebrew-test-reminder" hidden>Remember the Hebrew numeral test in Section 1.2?</span></div>
         <div class="representation-detail" aria-live="polite">
           <p id="representation-explanation">The numeral 1 is a visual Arabic symbol for the quantity one.</p>
         </div>
@@ -462,6 +576,16 @@ document.querySelectorAll('.skill-card-toggle').forEach((button) => {
   })
 })
 
+document.querySelectorAll('.udl-card-toggle').forEach((button) => {
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true'
+    const example = document.getElementById(button.getAttribute('aria-controls'))
+    button.setAttribute('aria-expanded', String(!expanded))
+    example.hidden = expanded
+    button.querySelector('.udl-toggle-icon').textContent = expanded ? '+' : '-'
+  })
+})
+
 document.querySelectorAll('.stage-tab').forEach((button) => {
   button.addEventListener('click', () => {
     const stage = button.dataset.craStage
@@ -509,6 +633,62 @@ document.querySelectorAll('[data-independent-answer]').forEach((button) => {
   })
 })
 
+const udlTabs = [...document.querySelectorAll('.udl-tab')]
+const activateUdlTab = (tab) => {
+  udlTabs.forEach((item) => {
+    const active = item === tab
+    item.classList.toggle('is-active', active)
+    item.setAttribute('aria-selected', String(active))
+    item.tabIndex = active ? 0 : -1
+  })
+  document.querySelectorAll('.udl-panel').forEach((panel) => {
+    panel.hidden = panel.dataset.udlContent !== tab.dataset.udlPanel
+  })
+}
+
+udlTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateUdlTab(tab))
+  tab.addEventListener('keydown', (event) => {
+    let nextIndex = index
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % udlTabs.length
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + udlTabs.length) % udlTabs.length
+    else if (event.key === 'Home') nextIndex = 0
+    else if (event.key === 'End') nextIndex = udlTabs.length - 1
+    else return
+    event.preventDefault()
+    udlTabs[nextIndex].focus()
+    activateUdlTab(udlTabs[nextIndex])
+  })
+})
+
+const alexScenarioTabs = [...document.querySelectorAll('.alex-scenario-tab')]
+const activateAlexScenario = (tab) => {
+  alexScenarioTabs.forEach((item) => {
+    const active = item === tab
+    item.classList.toggle('is-active', active)
+    item.setAttribute('aria-selected', String(active))
+    item.tabIndex = active ? 0 : -1
+  })
+  document.querySelectorAll('.alex-scenario-panel').forEach((panel) => {
+    panel.hidden = panel.dataset.alexContent !== tab.dataset.alexPanel
+  })
+}
+
+alexScenarioTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateAlexScenario(tab))
+  tab.addEventListener('keydown', (event) => {
+    let nextIndex = index
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % alexScenarioTabs.length
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + alexScenarioTabs.length) % alexScenarioTabs.length
+    else if (event.key === 'Home') nextIndex = 0
+    else if (event.key === 'End') nextIndex = alexScenarioTabs.length - 1
+    else return
+    event.preventDefault()
+    alexScenarioTabs[nextIndex].focus()
+    activateAlexScenario(alexScenarioTabs[nextIndex])
+  })
+})
+
 document.querySelectorAll('.mediation-tab').forEach((tab) => {
   tab.addEventListener('click', () => {
     const isSocial = tab.dataset.mediation === 'social'
@@ -548,6 +728,7 @@ languageToggle.addEventListener('click', () => {
   const isHebrew = numberMap.dataset.language !== 'hebrew'
   numberMap.dataset.language = isHebrew ? 'hebrew' : 'english'
   document.querySelector('#hebrew-mode-reflection').hidden = !isHebrew
+  document.querySelector('#hebrew-test-reminder').hidden = !isHebrew
   languageToggle.setAttribute('aria-pressed', String(isHebrew))
   document.querySelector('#arabic-label').textContent = isHebrew ? 'Hebrew Numeral' : 'Arabic Numeral'
   document.querySelector('#arabic-value').innerHTML = isHebrew ? '<span lang="he" dir="rtl">&#x5D0;&#x5F3;</span>' : '1'
@@ -574,15 +755,21 @@ document.querySelectorAll('.representation-node').forEach((node) => {
       if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
         const utterance = new SpeechSynthesisUtterance(isHebrew ? 'echad' : 'one')
         if (isHebrew) {
-          utterance.lang = 'he-IL'
-          const hebrewVoice = window.speechSynthesis.getVoices().find((voice) => voice.lang.toLowerCase().startsWith('he'))
-          if (hebrewVoice) utterance.voice = hebrewVoice
-          else document.querySelector('#representation-explanation').textContent = 'The word is echad. This browser does not have a Hebrew speech voice available.'
+          const voices = window.speechSynthesis.getVoices()
+          const hebrewVoice = voices.find((voice) => voice.lang.toLowerCase().startsWith('he'))
+          if (hebrewVoice) {
+            utterance.lang = hebrewVoice.lang
+            utterance.voice = hebrewVoice
+          } else {
+            // Keep the spoken-word interaction audible when no Hebrew voice is installed.
+            utterance.lang = 'en-US'
+            document.querySelector('#representation-explanation').textContent = 'No Hebrew voice is available in this browser, so the default voice will say “echad.”'
+          }
         } else {
           utterance.lang = 'en-US'
         }
         window.speechSynthesis.cancel()
-        if (!isHebrew || utterance.voice) window.speechSynthesis.speak(utterance)
+        window.speechSynthesis.speak(utterance)
       } else {
         document.querySelector('#representation-explanation').textContent = isHebrew
           ? 'The word is echad. Audio playback is not supported in this browser.'
