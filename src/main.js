@@ -542,7 +542,7 @@ document.querySelector('#app').innerHTML = `
       <div class="topbar-meta">
         <span>Term: 2026 Fall</span>
         <span>Author: Yuhao Yuan</span>
-        <span>Teacher: <strong>Katie Maxwell, EdD.</strong> · Sessional Lecturer</span>
+        <span>Instructor: <strong>Katie Maxwell, EdD.</strong> · Sessional Lecturer</span>
       </div>
     </header>
 
