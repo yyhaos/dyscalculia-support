@@ -506,3 +506,30 @@ body { background: #ecebe4; }
 .section-dialog .section-heading { padding-right: 28px; }
 .section-dialog .outline-card { background: var(--paper); }
 @media (prefers-reduced-motion: reduce) { .poster-card { transition: none; } }
+
+/* Reference-inspired poster palette and multi-column editorial layout. */
+body { background: #d7d5ff; }
+.poster { padding: clamp(14px,1.6vw,24px); gap: 12px; background: #7775d5; }
+.poster-header { min-height: 84px; align-items: center; padding: 8px 12px 13px; border-bottom: 2px solid rgb(255 255 255 / 65%); color: #fffdf4; }
+.poster-kicker { color: #ffe47c; }
+.poster-header h1 { color: #fffdf4; text-shadow: 2px 3px 0 rgb(63 69 153 / 32%); }
+.poster-header h1 em { color: #ffb6df; }
+.poster-deck { color: #f2efff; }
+.poster-mark { display: grid; width: 72px; height: 72px; flex: 0 0 72px; align-content: center; justify-items: center; gap: 2px; border: 3px solid #fff6d5; border-radius: 50%; background: #f6a6d5; color: #fff; transform: rotate(7deg); }
+.poster-mark span { font: 34px/1 Georgia,serif; }.poster-mark i { font-size: 8px; font-style: normal; }
+.poster-grid { grid-template-columns: 1fr 1fr 1.08fr; grid-template-rows: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "experience theory dyscalculia" "support support resources"; gap: 11px; }
+.poster-card { position: relative; overflow: hidden; padding: clamp(13px,1.5vw,22px); border: 3px solid #fff7e1; border-radius: 15px; color: #29284a; box-shadow: 5px 6px 0 rgb(56 58 137 / 24%); }
+.poster-card::after { position: absolute; right: -22px; bottom: -27px; width: 80px; height: 80px; border: 10px solid rgb(255 255 255 / 30%); border-radius: 50%; content: ""; pointer-events: none; }
+.poster-card:hover { border-color: #ffe478; box-shadow: 5px 8px 0 rgb(56 58 137 / 30%); }
+.poster-card-experience { grid-area: experience; background: #ffb5df; }.poster-card-theory { grid-area: theory; background: #fff8e8; }.poster-card-dyscalculia { grid-area: dyscalculia; background: #ffe57b; }.poster-card-support { grid-area: support; background: #cbc5ff; }.poster-card-resources { grid-area: resources; background: #91dfd0; }
+.poster-number { position: relative; z-index: 1; color: #4e4c9b; font-size: 9px; letter-spacing: .12em; }
+.poster-card h2 { position: relative; z-index: 1; margin: 8px 0 6px; color: #282748; font-size: clamp(18px,1.7vw,25px); }
+.poster-card > .poster-summary { position: relative; z-index: 1; min-height: 30px; margin: 0; color: #504e69; font-size: 10px; line-height: 1.4; }
+.poster-highlights { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-content: center; gap: 6px; flex: 1; min-height: 0; margin: 9px 0; }
+.poster-card-experience .poster-highlights { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.highlight-chip { display: flex; min-width: 0; min-height: 38px; flex-direction: column; justify-content: center; gap: 3px; padding: 6px 8px; border: 1px solid rgb(91 83 158 / 15%); border-radius: 6px; background: rgb(255 255 255 / 63%); color: #33304e; font-size: 9px; font-weight: 650; line-height: 1.2; text-align: left; }
+.highlight-chip small { color: #7775b4; font-size: 7px; }
+.symbol-highlight { display: grid; min-height: 48px; place-items: center; border-radius: 7px; background: rgb(255 255 255 / 65%); color: #615daa; font: 22px Georgia,serif; }.symbol-highlight small { color: #39355c; font: 8px sans-serif; letter-spacing: 1px; }
+.card-action { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 6px; border-top: 1px solid rgb(73 69 127 / 22%); color: #484681; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }.card-action b { font-size: 15px; }
+.poster-footer { margin: 0; color: #fffdf4; font: italic 12px Georgia,serif; text-align: center; }
+.section-dialog { border: 4px solid #ffb5df; background: #fffdf6; }.dialog-close { border: 2px solid #7775d5; background: #ffe57b; color: #38366f; }

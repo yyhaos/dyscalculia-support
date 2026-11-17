@@ -537,14 +537,25 @@ const sectionMarkup = sections.map((section) => `
 
 document.querySelector('#app').innerHTML = `
   <main class="poster" id="top">
-    <header class="poster-header"><div><p class="poster-kicker">LEARNING DIFFERENCES · MATH</p><h1>Understanding <em>Dyscalculia</em></h1><p class="poster-deck">An interactive visual guide for educators, families, and students</p></div></header>
+    <header class="poster-header">
+      <div><p class="poster-kicker">LEARNING DIFFERENCES · MATH</p><h1>Understanding <em>Dyscalculia</em></h1><p class="poster-deck">A visual guide for educators, families, and students</p></div>
+      <div class="poster-mark" aria-hidden="true"><span>4</span><i>● ● ● ●</i></div>
+    </header>
     <div class="poster-grid">
-      <button class="poster-card" type="button" data-open-section="experience"><span class="poster-number">01 · EXPERIENCE</span><h2>When numbers feel unfamiliar</h2><p>Try mapping unfamiliar symbols to quantities.</p><div class="poster-visual symbols-visual"><span>א <small>●</small></span><span>ב <small>● ●</small></span><span>ג <small>● ● ●</small></span><span>ד <small>● ● ● ●</small></span></div><span class="card-action">Open section ↗</span></button>
-      <button class="poster-card" type="button" data-open-section="theory"><span class="poster-number">02 · NUMBER LEARNING</span><h2>One quantity, many connections</h2><p>See how symbols, words, and amounts connect.</p><div class="poster-visual map-visual"><b>4</b><i>↔</i><b>four</b><i>↔</i><b>● ● ● ●</b></div><span class="card-action">Open section ↗</span></button>
-      <button class="poster-card" type="button" data-open-section="dyscalculia"><span class="poster-number">03 · LEARNER PROFILES</span><h2>Different needs, individual strengths</h2><p>Explore number sense, symbols, fluency, reasoning, and everyday math.</p><div class="poster-visual profile-visual"><span>Quantity</span><span>Place value</span><span>Fluency</span><span>Reasoning</span><span>Strengths</span></div><span class="card-action">Open section ↗</span></button>
-      <button class="poster-card" type="button" data-open-section="support"><span class="poster-number">04 · TEACHING SUPPORTS</span><h2>Make the mathematics accessible</h2><p>Concrete models · clear steps · flexible practice · response choices</p><div class="poster-visual strategy-visual"><span>● → drawing → 23</span><span>Model → practise → try</span><span>Show · explain · choose</span></div><span class="card-action">Open section ↗</span></button>
-      <button class="poster-card poster-resources" type="button" data-open-section="resources"><span class="poster-number">05 · RESOURCES</span><h2>Keep learning</h2><p>Research, family resources, Ontario guidance, and full references.</p><div class="poster-visual source-visual">Research · Practice · Policy</div><span class="card-action">Open section ↗</span></button>
+      ${sections.map((section) => `
+        <button class="poster-card poster-card-${section.id}" type="button" data-open-section="${section.id}" aria-haspopup="dialog">
+          <span class="poster-number">${section.number} · ${section.title.toUpperCase()}</span>
+          <h2>${section.subtitle}</h2>
+          <p class="poster-summary">${section.intro || (section.id === 'experience' ? 'When Counting Becomes Frustrating · Learning an Unfamiliar Number System' : '')}</p>
+          <div class="poster-highlights" aria-label="Section highlights">
+            ${section.id === 'experience' ? '<span class="symbol-highlight"><b>א</b><small>●</small></span><span class="symbol-highlight"><b>ב</b><small>● ●</small></span><span class="symbol-highlight"><b>ג</b><small>● ● ●</small></span><span class="symbol-highlight"><b>ד</b><small>● ● ● ●</small></span>' : ''}
+            ${section.items.map(([number, title]) => `<span class="highlight-chip"><small>${number}</small>${title}</span>`).join('')}
+          </div>
+          <span class="card-action">Open section <b aria-hidden="true">↗</b></span>
+        </button>
+      `).join('')}
     </div>
+    <p class="poster-footer">Different learners. Different strengths. Support that responds to the person.</p>
     <div class="section-content" hidden>${sectionMarkup}</div>
   </main>
 `
