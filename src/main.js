@@ -1,4 +1,4 @@
-import './style.css'
+﻿import './style.css'
 
 const sections = [
   {
@@ -16,8 +16,8 @@ const sections = [
     subtitle: 'How do we learn numbers?',
     intro: '',
     items: [
-      ['2.1', "Vygotsky’s Mediation Theory", 'Cultural tools', 'Language and symbols help people organize thought. Children learn how to use mathematical tools through social interaction.'],
-      ['2.2', 'Making Sense of Numbers', 'Interactive concept map placeholder', 'Quantity · spoken number word · written number word · numeral · numerical meaning. Selectable connections will be added here.'],
+      ['2.1', "Vygotsky鈥檚 Mediation Theory", 'Cultural tools', 'Language and symbols help people organize thought. Children learn how to use mathematical tools through social interaction.'],
+      ['2.2', 'Making Sense of Numbers', 'Interactive concept map placeholder', 'Quantity 路 spoken number word 路 written number word 路 numeral 路 numerical meaning. Selectable connections will be added here.'],
       ['2.3', 'From Guided Learning to Independent Thinking', 'Guidance over time', 'Social interaction, internalization, and scaffolding describe how supported practice can lead toward independent use.'],
     ],
   },
@@ -29,7 +29,7 @@ const sections = [
     intro: 'Dyscalculia is one way of describing persistent difficulty with aspects of learning mathematics.',
     items: [
       ['3.1', 'What Is Developmental Dyscalculia?', 'Definition and context', 'A persistent pattern of difficulty with numerical understanding and mathematical learning.'],
-      ['3.2', 'Common Characteristics & Learning Needs', 'Clickable card placeholder', 'Number sense · symbol–quantity mapping · arithmetic fact retrieval · calculation fluency · mathematical reasoning.'],
+      ['3.2', 'Common Characteristics & Learning Needs', 'Clickable card placeholder', 'Number sense 路 symbol鈥搎uantity mapping 路 arithmetic fact retrieval 路 calculation fluency 路 mathematical reasoning.'],
       ['3.3', 'Every Learner Has a Unique Profile', 'Meet Alex', 'A fictional Grade 4 learner whose interests and existing abilities can inform supportive teaching. Strengths vary from person to person.'],
     ],
   },
@@ -40,10 +40,10 @@ const sections = [
     subtitle: 'Make learning visible and accessible',
     intro: 'A supportive classroom offers clear explanations, useful representations, and flexible ways to participate.',
     items: [
-      ['4.1', 'Practical Teaching Strategies', 'CRA · Explicit instruction · Visual models', 'Move between concrete materials, visual representations, and mathematical symbols; model ideas and provide guided practice.'],
+      ['4.1', 'Practical Teaching Strategies', 'CRA 路 Explicit instruction 路 Visual models', 'Move between concrete materials, visual representations, and mathematical symbols; model ideas and provide guided practice.'],
       ['4.2', 'Universal Design for Learning', 'Multiple ways to learn', 'Offer multiple means of representation, engagement, and action and expression.'],
       ['4.3', 'Differentiated Instruction', 'Responsive support', 'Adjust tasks to current understanding, break learning into supported steps, and adapt help as learners progress.'],
-      ['4.4', 'Applying Strategies to Alex', 'Learning need → strength → strategy', 'Example: Alex enjoys drawing and needs support with place value. Drawn tens-and-ones models can connect that interest to the concept.'],
+      ['4.4', 'Applying Strategies to Alex', 'Learning need 鈫?strength 鈫?strategy', 'Example: Alex enjoys drawing and needs support with place value. Drawn tens-and-ones models can connect that interest to the concept.'],
     ],
   },
   {
@@ -53,7 +53,7 @@ const sections = [
     subtitle: 'Continue the conversation',
     intro: 'Trusted starting points for educators, families, and students, followed by the academic and policy references used throughout this page.',
     items: [
-      ['5.1', 'For Educators', 'Organizations and guidance', 'Learning Disabilities Association of Ontario (LDAO) · LD@school · CAST UDL Guidelines.'],
+      ['5.1', 'For Educators', 'Organizations and guidance', 'Learning Disabilities Association of Ontario (LDAO) 路 LD@school 路 CAST UDL Guidelines.'],
       ['5.2', 'For Families', 'Finding support', 'Family guides, practical math activities, and information about seeking assessment and school support.'],
       ['5.3', 'References', 'Sources and acknowledgements', 'APA 7 references, video source and usage notes, and sources for research-based statements will be collected here.'],
     ],
@@ -221,7 +221,7 @@ const sectionMarkup = sections.map((section) => `
         <article class="alex-profile" aria-labelledby="alex-profile-title">
           <div class="alex-profile-heading">
             <div><span class="profile-label">Fictional example</span><h4 id="alex-profile-title">Meet Alex</h4></div>
-            <span class="grade-label">Grade 4 · Dyscalculia</span>
+            <span class="grade-label">Grade 4 路 Dyscalculia</span>
           </div>
           <div class="alex-profile-columns">
             <section class="alex-profile-group alex-strengths" aria-labelledby="alex-strengths-title">
@@ -373,7 +373,7 @@ const sectionMarkup = sections.map((section) => `
             <svg viewBox="0 0 720 145" role="img" aria-labelledby="alex-numberline-title alex-numberline-desc"><title id="alex-numberline-title">Four forward jumps from 3 to 7</title><desc id="alex-numberline-desc">A number line shows four one-step jumps: 3 to 4, 4 to 5, 5 to 6, and 6 to 7.</desc><line x1="55" y1="105" x2="665" y2="105" stroke="#9a9d91" stroke-width="3"/><g fill="none" stroke="#55745f" stroke-width="3"><path d="M284 100 Q322 35 360 100"/><path d="M360 100 Q398 35 436 100"/><path d="M436 100 Q474 35 512 100"/><path d="M512 100 Q550 35 588 100"/></g><g fill="#27312c" font-family="Arial,sans-serif" font-size="17" text-anchor="middle"><text x="55" y="133">0</text><text x="131" y="133">1</text><text x="207" y="133">2</text><text x="284" y="133">3</text><text x="360" y="133">4</text><text x="436" y="133">5</text><text x="512" y="133">6</text><text x="588" y="133">7</text><text x="665" y="133">8</text></g><g fill="#55745f"><circle cx="284" cy="105" r="6"/><circle cx="360" cy="105" r="6"/><circle cx="436" cy="105" r="6"/><circle cx="512" cy="105" r="6"/><circle cx="588" cy="105" r="7"/></g></svg>
             <p class="alex-equation">3 + 4 = 7</p>
           </div>
-          <p class="alex-scenario-connection">Alex counts each jump aloud to a partner: “3, 4, 5, 6, 7.” The teacher models first, offers guided prompts, then gradually reduces them as Alex gains fluency. Verbal explanation supports Alex's agency in the shared lesson, applying <a href="#support-4-1">explicit instruction</a>, <a href="#support-4-2">UDL</a>, and <a href="#support-4-3">DI</a>.</p>
+          <p class="alex-scenario-connection">Alex counts each jump aloud to a partner: 鈥?, 4, 5, 6, 7.鈥?The teacher models first, offers guided prompts, then gradually reduces them as Alex gains fluency. Verbal explanation supports Alex's agency in the shared lesson, applying <a href="#support-4-1">explicit instruction</a>, <a href="#support-4-2">UDL</a>, and <a href="#support-4-3">DI</a>.</p>
         </article>
         <p class="alex-inclusive-note">Alex participates in the same mathematics classroom as peers while receiving individualized support matched to the learning need and personal strengths (Fuchs et al., 2021; CAST, 2024; Ontario Ministry of Education, 2013).</p>
         <p class="alex-ending">Inclusive education begins with understanding each learner's strengths and creating opportunities for meaningful participation.</p>
@@ -536,36 +536,42 @@ const sectionMarkup = sections.map((section) => `
 `).join('')
 
 document.querySelector('#app').innerHTML = `
-  <div class="page">
-    <header class="topbar">
-      <a class="brand" href="#top">APD1281H-F-LEC7130-20269</a>
-      <div class="topbar-meta">
-        <span>Term: 2026 Fall</span>
-        <span>Author: Yuhao Yuan</span>
-        <span>Instructor: <strong>Katie Maxwell, EdD.</strong> · Sessional Lecturer</span>
-      </div>
-    </header>
-
-    <main id="top">
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-copy">
-          <h1 id="page-title">Understanding Dyscalculia: <em>Learning Numbers Through a Different Lens</em></h1>
-          <p class="intro">An interactive introduction to the complexity of learning number concepts, understanding dyscalculia, and supporting learners through their strengths.</p>
-          <a class="button" href="#experience">Begin exploring <span aria-hidden="true">→</span></a>
-        </div>
-      </section>
-
-      <nav class="section-nav" aria-label="Main navigation">
-        ${sections.map(({ id, number, title }) => `<a href="#${id}"><span>${number}</span>${title}</a>`).join('')}
-      </nav>
-
-      ${sectionMarkup}
-    </main>
-
-    <footer><span>Understanding Dyscalculia</span><a href="#top">Back to top ↑</a></footer>
-  </div>
+  <main class="poster" id="top">
+    <header class="poster-header"><div><p class="poster-kicker">LEARNING DIFFERENCES · MATH</p><h1>Understanding <em>Dyscalculia</em></h1><p class="poster-deck">An interactive visual guide for educators, families, and students</p></div></header>
+    <div class="poster-grid">
+      <button class="poster-card" type="button" data-open-section="experience"><span class="poster-number">01 · EXPERIENCE</span><h2>When numbers feel unfamiliar</h2><p>Try mapping unfamiliar symbols to quantities.</p><div class="poster-visual symbols-visual"><span>א <small>●</small></span><span>ב <small>● ●</small></span><span>ג <small>● ● ●</small></span><span>ד <small>● ● ● ●</small></span></div><span class="card-action">Open section ↗</span></button>
+      <button class="poster-card" type="button" data-open-section="theory"><span class="poster-number">02 · NUMBER LEARNING</span><h2>One quantity, many connections</h2><p>See how symbols, words, and amounts connect.</p><div class="poster-visual map-visual"><b>4</b><i>↔</i><b>four</b><i>↔</i><b>● ● ● ●</b></div><span class="card-action">Open section ↗</span></button>
+      <button class="poster-card" type="button" data-open-section="dyscalculia"><span class="poster-number">03 · LEARNER PROFILES</span><h2>Different needs, individual strengths</h2><p>Explore number sense, symbols, fluency, reasoning, and everyday math.</p><div class="poster-visual profile-visual"><span>Quantity</span><span>Place value</span><span>Fluency</span><span>Reasoning</span><span>Strengths</span></div><span class="card-action">Open section ↗</span></button>
+      <button class="poster-card" type="button" data-open-section="support"><span class="poster-number">04 · TEACHING SUPPORTS</span><h2>Make the mathematics accessible</h2><p>Concrete models · clear steps · flexible practice · response choices</p><div class="poster-visual strategy-visual"><span>● → drawing → 23</span><span>Model → practise → try</span><span>Show · explain · choose</span></div><span class="card-action">Open section ↗</span></button>
+      <button class="poster-card poster-resources" type="button" data-open-section="resources"><span class="poster-number">05 · RESOURCES</span><h2>Keep learning</h2><p>Research, family resources, Ontario guidance, and full references.</p><div class="poster-visual source-visual">Research · Practice · Policy</div><span class="card-action">Open section ↗</span></button>
+    </div>
+    <div class="section-content" hidden>${sectionMarkup}</div>
+  </main>
 `
 
+const sectionDialogs = new Map()
+document.querySelectorAll('.section-content .content-section').forEach((section) => {
+  const dialog = document.createElement('dialog')
+  dialog.className = 'section-dialog'
+  const close = document.createElement('button')
+  close.className = 'dialog-close'
+  close.type = 'button'
+  close.setAttribute('aria-label', 'Close section')
+  close.textContent = '×'
+  close.addEventListener('click', () => dialog.close())
+  dialog.append(close, section)
+  document.querySelector('.poster').append(dialog)
+  sectionDialogs.set(section.id, dialog)
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close()
+  })
+})
+document.querySelectorAll('[data-open-section]').forEach((button) => {
+  button.addEventListener('click', () => sectionDialogs.get(button.dataset.openSection)?.showModal())
+})
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') document.querySelectorAll('.section-dialog[open]').forEach((dialog) => dialog.close())
+})
 document.querySelectorAll('.skill-card-toggle').forEach((button) => {
   button.addEventListener('click', () => {
     const isExpanded = button.getAttribute('aria-expanded') === 'true'
